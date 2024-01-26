@@ -10,9 +10,17 @@
 
 <body>
 
-    <div class="flex flex-col justify-center w-5/6">
+    <div class="h-screen flex items-center  flex-col">
+        <h1
+            class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white relative top-0 mt-6">
+            Bookshelf <span class="text-blue-600 dark:text-blue-500">app</span></h1>
+        <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 mt-10 w-3/5 text-center">Please fill
+            the form below to add your
+            book to the bookshelf:</p>
+
+
         <label for="BookName"
-            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 my-3 w-3/6">
+            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 my-3 w-2/5 mt-5">
             <input type="text" id="BookName"
                 class="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                 placeholder="BookName" />
@@ -24,7 +32,7 @@
 
 
         <label for="BookAuthor"
-            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 w-3/6">
+            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 w-2/5 mt-4">
             <input type="text" id="BookAuthor"
                 class="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                 placeholder="BookAuthor" />
@@ -35,33 +43,21 @@
         </label>
 
 
-
-
-
-
-        <!-- <label for="BookName">Book name</label>
-    <input type="text" id="BookName"> -->
-        <!-- <label for="BookAuthor">Author</label>
-    <input type="text" id="BookAuthor"> -->
-
-
-
-
-
-        <label for="BookCategory" class="block text-xs font-medium text-gray-700 " >Category</label>
-        <select id="BookCategory" class="mt-1 w-1/6 rounded-md border-gray-200 shadow-sm sm:text-sm">
-            <option>Novel</option>
-            <option>Poetry</option>
-            <option>History</option>
-            <option>Philosophy</option>
-            <option>Science</option>
-        </select>
-
+        <div class="w-2/5 mt-4">
+            <label for="BookCategory" class="block text-xs font-medium text-gray-700   ">Category</label>
+            <select id="BookCategory" class="mt-1 w-1/6 rounded-md border-gray-200 shadow-sm sm:text-sm">
+                <option>Novel</option>
+                <option>Poetry</option>
+                <option>History</option>
+                <option>Philosophy</option>
+                <option>Science</option>
+            </select>
+        </div>
 
 
 
         <label for="BookYear"
-            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 w-3/6">
+            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 w-2/5 mt-6">
             <input type="text" id="BookYear"
                 class="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                 placeholder="BookYear" />
@@ -71,25 +67,17 @@
             </span>
         </label>
 
-
-
-        <!-- <label for="BookYear">Year</label>
-    <input type="text" id="BookYear"> -->
-
-
-
-
-        <label for="BookRead" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">Read</label>
-        <input type="hidden" id="BookRead" value="0"><input type="checkbox"
-            onclick="this.previousSibling.value=1-this.previousSibling.value"
-            class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded active:ring-blue-500 dark:active:ring-blue-600 dark:ring-offset-gray-800 active:ring-2 dark:bg-gray-700 dark:border-gray-600">
-        <!-- <input type="checkbox" value="Yes" id="BookRead"> -->
-
-
-
+        <div class="w-2/5 mt-4">
+            <label for="BookRead" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 ml-1">Did you read
+                the book?
+                <input type="hidden" id="BookRead" value="0"><input type="checkbox"
+                    onclick="this.previousSibling.value=1-this.previousSibling.value"
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded active:ring-blue-500 dark:active:ring-blue-600 dark:ring-offset-gray-800 active:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            </label>
+        </div>
 
         <label for="ISBN"
-            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 w-3/6">
+            class="relative block rounded-md border border-gray-200 shadow-sm focus-within:border-blue-600 focus-within:ring-1 focus-within:ring-blue-600 w-2/5 mt-5">
             <input type="text" id="BookISBN"
                 class="peer border-none bg-transparent placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0"
                 placeholder="ISBN" />
@@ -100,25 +88,11 @@
         </label>
 
 
-
-
         <button id="Submit-btn"
-            class="inline-block rounded-md border border-current px-4 py-2 text-sm font-medium text-blue-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-blue-600 w-1/6">Submit</button>
+            class="inline-block rounded-md border border-current px-4 py-2 text-sm font-medium text-blue-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-blue-600 w-1/6 mt-6">Submit</button>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-8/12 place-content-center">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-8/12 place-content-center mt-6 mb-6">
             <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
                 <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                     <tr>
@@ -173,8 +147,6 @@
                         </td>
                     </tr>
 
-
-
                 </tbody>
             </table>
         </div>
@@ -182,10 +154,11 @@
     </div>
 
 
-
-
-
     <script src="script.js"></script>
 </body>
 
 </html>
+
+
+<!-- localstorage -->
+<!-- background -->
