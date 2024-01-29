@@ -1,4 +1,7 @@
 "use strict";
+
+var items = [];
+
 class Book {
     constructor(name, author, category, year, read, isbn) {
         this.name = name;
@@ -71,6 +74,10 @@ document.getElementById("Submit-btn").addEventListener('click', () => {
     else {
         const book1 = new Book(nameV, authorV, categoryV, yearV, readV, isbnV);
         book1.add();
+
+        items.push(book1);
+        localStorage.setItem("stored", JSON.stringify(items));
+
     }
 });
 function changeClass() {
