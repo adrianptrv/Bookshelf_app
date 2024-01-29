@@ -11,21 +11,81 @@ class Book {
     add() {
         const list = document.getElementById("book-list");
         const newBook = document.createElement('tr');
-        newBook.classList.add("odd:bg-white", "odd:dark:bg-gray-900", "even:bg-gray-50", "even:dark:bg-gray-800", "border-b", "dark:border-gray-700")
-        newBook.innerHTML = '<th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">' + this.name + '</th><td class="px-6 py-4">' + this.author + '</td><td class="px-6 py-4">' + this.category + '</td><td class="px-6 py-4">' + this.year + '</td><td class="px-6 py-4">' + this.read + '</td><td class="px-6 py-4">' + this.isbn + '</td>' + '<td class="px-6 py-4"><a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline cursor-pointer" onclick="delBook(this)">Remove</a></td>';
+        newBook.innerHTML = '<td>' + this.name + '</td><td>' + this.author + '</td><td>' + this.category + '</td><td>' + this.year + '</td><td>' + this.read + '</td><td>' + this.isbn + '</td>' + '<a onclick="delBook(this)">X</a>';
         list.appendChild(newBook);
     }
 }
 document.getElementById("Submit-btn").addEventListener('click', () => {
-    const name1 = document.querySelector("#BookName").value;
-    const author1 = document.querySelector("#BookAuthor").value;
-    const category1 = document.querySelector("#BookCategory").value;
-    const year1 = parseInt(document.querySelector("#BookYear").value);
-    const read1 = parseInt(document.querySelector("#BookRead").value);
-    const isbn1 = parseInt(document.querySelector("#BookISBN").value);
-    const book1 = new Book(name1, author1, category1, year1, read1, isbn1);
-    book1.add();
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v, _w, _x, _y, _z, _0, _1, _2, _3, _4, _5;
+    changeClass();
+    const nameV = document.querySelector("#BookName").value;
+    const authorV = document.querySelector("#BookAuthor").value;
+    const categoryV = document.querySelector("#BookCategory").value;
+    const yearV = parseInt(document.querySelector("#BookYear").value);
+    const readV = parseInt(document.querySelector("#BookRead").value);
+    const isbnV = parseInt(document.querySelector("#BookISBN").value);
+    if (nameV === '' || authorV === '' || ((_a = document.querySelector("#BookYear")) === null || _a === void 0 ? void 0 : _a.value) == '' || ((_b = document.querySelector("#BookISBN")) === null || _b === void 0 ? void 0 : _b.value) == '') {
+        (_c = document.querySelector("#alertFill")) === null || _c === void 0 ? void 0 : _c.classList.add("block");
+        (_d = document.querySelector("#alertFill")) === null || _d === void 0 ? void 0 : _d.classList.remove("hidden");
+        if (nameV === '') {
+            (_e = document.querySelector("#BookNameL")) === null || _e === void 0 ? void 0 : _e.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_f = document.querySelector("#BookNameT")) === null || _f === void 0 ? void 0 : _f.classList.add("text-rose-500");
+        }
+        if (authorV === '') {
+            (_g = document.querySelector("#BookAuthorL")) === null || _g === void 0 ? void 0 : _g.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_h = document.querySelector("#BookAuthorT")) === null || _h === void 0 ? void 0 : _h.classList.add("text-rose-500");
+        }
+        if (((_j = document.querySelector("#BookYear")) === null || _j === void 0 ? void 0 : _j.value) == '') {
+            (_k = document.querySelector("#BookYearL")) === null || _k === void 0 ? void 0 : _k.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_l = document.querySelector("#BookYearT")) === null || _l === void 0 ? void 0 : _l.classList.add("text-rose-500");
+        }
+        else if (((_m = document.querySelector("#BookYear")) === null || _m === void 0 ? void 0 : _m.value) !== '' && isNaN(yearV)) {
+            (_o = document.querySelector("#alertType")) === null || _o === void 0 ? void 0 : _o.classList.add("block");
+            (_p = document.querySelector("#alertType")) === null || _p === void 0 ? void 0 : _p.classList.remove("hidden");
+            (_q = document.querySelector("#BookYearL")) === null || _q === void 0 ? void 0 : _q.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_r = document.querySelector("#BookYearT")) === null || _r === void 0 ? void 0 : _r.classList.add("text-rose-500");
+        }
+        if (((_s = document.querySelector("#BookISBN")) === null || _s === void 0 ? void 0 : _s.value) == '') {
+            (_t = document.querySelector("#ISBNL")) === null || _t === void 0 ? void 0 : _t.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_u = document.querySelector("#ISBNT")) === null || _u === void 0 ? void 0 : _u.classList.add("text-rose-500");
+        }
+        else if (((_v = document.querySelector("#BookISBN")) === null || _v === void 0 ? void 0 : _v.value) !== '' && isNaN(isbnV)) {
+            (_w = document.querySelector("#alertType")) === null || _w === void 0 ? void 0 : _w.classList.add("block");
+            (_x = document.querySelector("#alertType")) === null || _x === void 0 ? void 0 : _x.classList.remove("hidden");
+            (_y = document.querySelector("#ISBNL")) === null || _y === void 0 ? void 0 : _y.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_z = document.querySelector("#ISBNT")) === null || _z === void 0 ? void 0 : _z.classList.add("text-rose-500");
+        }
+    }
+    else if (isNaN(yearV) || isNaN(isbnV)) {
+        (_0 = document.querySelector("#alertType")) === null || _0 === void 0 ? void 0 : _0.classList.add("block");
+        (_1 = document.querySelector("#alertType")) === null || _1 === void 0 ? void 0 : _1.classList.remove("hidden");
+        if (isNaN(yearV)) {
+            (_2 = document.querySelector("#BookYearL")) === null || _2 === void 0 ? void 0 : _2.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_3 = document.querySelector("#BookYearT")) === null || _3 === void 0 ? void 0 : _3.classList.add("text-rose-500");
+        }
+        if (isNaN(isbnV)) {
+            (_4 = document.querySelector("#ISBNL")) === null || _4 === void 0 ? void 0 : _4.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            (_5 = document.querySelector("#ISBNT")) === null || _5 === void 0 ? void 0 : _5.classList.add("text-rose-500");
+        }
+    }
+    else {
+        const book1 = new Book(nameV, authorV, categoryV, yearV, readV, isbnV);
+        book1.add();
+    }
 });
+function changeClass() {
+    var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
+    (_a = document.querySelector("#alertFill")) === null || _a === void 0 ? void 0 : _a.classList.add("hidden");
+    (_b = document.querySelector("#alertType")) === null || _b === void 0 ? void 0 : _b.classList.add("hidden");
+    (_c = document.querySelector("#BookNameL")) === null || _c === void 0 ? void 0 : _c.classList.remove("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+    (_d = document.querySelector("#BookNameT")) === null || _d === void 0 ? void 0 : _d.classList.remove("text-rose-500");
+    (_e = document.querySelector("#BookAuthorL")) === null || _e === void 0 ? void 0 : _e.classList.remove("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+    (_f = document.querySelector("#BookAuthorT")) === null || _f === void 0 ? void 0 : _f.classList.remove("text-rose-500");
+    (_g = document.querySelector("#BookYearL")) === null || _g === void 0 ? void 0 : _g.classList.remove("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+    (_h = document.querySelector("#BookYearT")) === null || _h === void 0 ? void 0 : _h.classList.remove("text-rose-500");
+    (_j = document.querySelector("#ISBNL")) === null || _j === void 0 ? void 0 : _j.classList.remove("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+    (_k = document.querySelector("#ISBNT")) === null || _k === void 0 ? void 0 : _k.classList.remove("text-rose-500");
+}
 function delBook(el) {
-    el.parentElement.parentElement.remove();
+    el.parentElement.remove();
 }
