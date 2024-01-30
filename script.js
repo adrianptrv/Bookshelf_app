@@ -75,8 +75,6 @@ document.getElementById("Submit-btn").addEventListener('click', () => {
         const book1 = new Book(nameV, authorV, categoryV, yearV, readV, isbnV);
         book1.add();
 
-        items.push(book1);
-        localStorage.setItem("stored", JSON.stringify(items));
 
     }
 });
@@ -93,6 +91,8 @@ function changeClass() {
     (_j = document.querySelector("#ISBNL")) === null || _j === void 0 ? void 0 : _j.classList.remove("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
     (_k = document.querySelector("#ISBNT")) === null || _k === void 0 ? void 0 : _k.classList.remove("text-rose-500");
 }
+var num1;
+
 function delBook(el) {
-    el.parentElement.remove();
+    num1 =  el.parentElement;
 }
