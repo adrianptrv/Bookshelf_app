@@ -1,7 +1,6 @@
 var items: any[] = []
 
 //Getting the array of book from local storage
-
 if (localStorage.getItem('stored') !== null) {
     items = JSON.parse(localStorage.getItem('stored') || '');
 }
