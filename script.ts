@@ -1,18 +1,10 @@
-// var items: [] = []
+var items: any[] = []
 
 //Getting the array of book from local storage
-var items: any = JSON.parse(localStorage.getItem('stored'));
 
-
-//Adding new object to the table for every book from the array of books from the local storage
-function popul(){
-    var iten;
-    for (let i = 0; i < items.length; i++){
-       iten = new Book(items[i].name, items[i].author, items[i].category, items[i].year, items[i].read, items[i].isbn)
-       iten.add();
-    }
+if (localStorage.getItem('stored') !== null) {
+    items = JSON.parse(localStorage.getItem('stored') || '');
 }
-
 //Class for generating the book objects
 class Book {
     name: string;
@@ -41,8 +33,12 @@ class Book {
 
 }
 
-
-
+//Adding new object to the table for every book from the array of books from the local storage
+var storageBooks;
+for (let i = 0; i < items.length; i++) {
+    storageBooks = new Book(items[i].name, items[i].author, items[i].category, items[i].year, items[i].read, items[i].isbn)
+    storageBooks.add();
+}
 
 //Declaring the elements which we will manipulate if we don't have the full information 
 const alertFill = document.querySelector("#alertFill");
@@ -59,7 +55,7 @@ const ISBNT = document.querySelector("#ISBNT");
 
 // Submit action code
 document.getElementById("Submit-btn")!.addEventListener('click', () => {
-     
+
 
     //Clearing the style to default
     changeClass();
@@ -82,8 +78,8 @@ document.getElementById("Submit-btn")!.addEventListener('click', () => {
         alertFill?.classList.remove("hidden")
 
         if (nameV === '') {
-           BookNameL?.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
-           BookNameT?.classList.add("text-rose-500");
+            BookNameL?.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
+            BookNameT?.classList.add("text-rose-500");
         }
         if (authorV === '') {
             BookAuthorL?.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
@@ -101,11 +97,11 @@ document.getElementById("Submit-btn")!.addEventListener('click', () => {
         }
         if (BookISBN == '') {
             ISBNL?.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
-           ISBNT?.classList.add("text-rose-500");
+            ISBNT?.classList.add("text-rose-500");
         }
         else if (BookISBN !== '' && isNaN(isbnV)) {
             alertType?.classList.add("block")
-           alertType?.classList.remove("hidden")
+            alertType?.classList.remove("hidden")
             ISBNL?.classList.add("border-red-500", "focus-within:border-red-500", "focus-within:ring-red-500");
             ISBNT?.classList.add("text-rose-500");
         }
@@ -131,8 +127,6 @@ document.getElementById("Submit-btn")!.addEventListener('click', () => {
     else {
         const book1 = new Book(nameV, authorV, categoryV, yearV, readV, isbnV);
         book1.add();
-
-
         items.push(book1);
         localStorage.setItem("stored", JSON.stringify(items));
     }
@@ -159,23 +153,13 @@ function changeClass() {
 
 //Funtion for removign the specific book from the table with books
 function delBook(el: any) {
-    el.parentElement.remove();
-
-//Get the removing book name;
-var num1 = el.parentElement.firstElementChild.textContent;
-
-
-//Finding index of the removed element
-    const result3 = items.findIndex(({ name }) => name === "cvb");
-
-    const result3 = items.findIndex(({ name }) => name === num1);
-
-//Removing the element 2 is an index
-items.splice(2, 1)
-
-items.splice(result3, 1)
-
-
-//Writing in the local storage the new array with the removed item.
-localStorage.setItem("stored", JSON.stringify(items));
+    el.parentElement.parentElement.remove();
+    //Get the removing book name;
+    var remName = el.parentElement.parentElement.firstElementChild.textContent;
+    //Finding index of the removed element
+    var remInd = items.findIndex(({ name }: any) => name === remName);
+    //Removing the element 2 is an index
+    items.splice(remInd, 1)
+    //Writing in the local storage the new array with the removed item.
+    localStorage.setItem("stored", JSON.stringify(items));
 }
