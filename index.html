@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="src/style.css">
-    <title>Document</title>
+    <title>Bookshelf App</title>
 </head>
 
 <body>
 
     <div class="h-screen flex items-center  flex-col">
         <h1
-            class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white relative top-0 mt-6">
-            Bookshelf <span class="text-blue-600 dark:text-blue-500">app</span></h1>
+            class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl relative top-0 mt-6">
+            Bookshelf <span class="text-blue-600">app</span></h1>
 
         <div role="alert" class="mt-4 hidden" id="alertFill">
             <div class="bg-red-500 text-white font-bold rounded-t px-4 py-2">
@@ -34,7 +34,7 @@
         </div>
 
 
-        <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 mt-6 w-3/5 text-center">Please fill
+        <p class="text-lg font-normal text-gray-500 lg:text-xl mt-6 w-3/5 text-center">Please fill
             the form below to add your
             book to the bookshelf:</p>
 
@@ -65,7 +65,7 @@
 
         <div class="lg:w-2/5 w-4/5 mt-4">
             <label for="BookCategory" class="block text-xs font-medium text-gray-700 cursor-pointer  ">Category</label>
-            <select id="BookCategory" class="mt-1 lg:w-1/6 w-3/6 rounded-md border-gray-200 shadow-sm sm:text-sm cursor-pointer">
+            <select id="BookCategory" class="mt-1 rounded-md border-gray-200 shadow-sm text-sm cursor-pointer">
                 <option>Novel</option>
                 <option>Poetry</option>
                 <option>History</option>
@@ -89,11 +89,11 @@
         </label>
 
         <div class="lg:w-2/5 w-4/5 mt-4">
-            <label for="BookRead" class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300 ml-0">Did you read
+            <label for="BookRead" class="ms-2 text-sm font-medium text-gray-900 ml-0">Did you read
                 the book?
                 <input type="hidden" id="BookRead" value="0"><input type="checkbox"
                     onclick="this.previousSibling.value=1-this.previousSibling.value"
-                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded active:ring-blue-500 dark:active:ring-blue-600 dark:ring-offset-gray-800 active:ring-2 dark:bg-gray-700 dark:border-gray-600 mb-1 ml-2 cursor-pointer">
+                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded active:ring-blue-500 active:ring-2 mb-1 ml-2 cursor-pointer">
             </label>
         </div>
 
@@ -108,14 +108,12 @@
             </span>
         </label>
 
-
         <button id="Submit-btn"
             class="inline-block rounded-md border border-current px-4 py-2 text-sm font-medium text-blue-600 transition hover:scale-110 hover:shadow-xl focus:outline-none focus:ring active:text-blue-600 lg:w-1/6 w-2/6 mt-6 cursor-pointer">Submit</button>
-
-
-        <div class="relative overflow-x-auto shadow-md sm:rounded-lg lg:w-8/12 w-4/5 min-h-24 place-content-center mt-6 mb-6">
-            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div
+            class="relative overflow-x-auto shadow-md sm:rounded-lg lg:w-8/12 w-4/5 min-h-[5rem] place-content-center mt-10 mb-10">
+            <table class="w-full h-full text-sm text-left rtl:text-right text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
                     <tr>
 
                         <th scope="col" class="px-6 py-3">
@@ -143,30 +141,7 @@
                     </tr>
                 </thead>
                 <tbody id="book-list">
-                    <!-- <tr
-                        class="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
-                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
-                        </th>
-                        <td class="px-6 py-4">
-                            Silver
-                        </td>
-                        <td class="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td class="px-6 py-4">
-                            $2999
-                        </td>
-                        <td class="px-6 py-4">
-                            yes
-                        </td>
-                        <td class="px-6 py-4">
-                            yes
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Remove</a>
-                        </td>
-                    </tr> -->
+
 
                 </tbody>
             </table>
